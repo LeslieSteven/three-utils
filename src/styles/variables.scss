@@ -1,0 +1,25 @@
+@use "sass:math";
+
+/** size */
+// 默认字体大小
+$font-size: 14px;
+$font-size-l1: 32px;
+$font-size-l2: 28px;
+$font-size-l3: 24px;
+// 标题
+$font-size-title: 64px;
+
+// 超级大标题
+$font-size-title-l1: 96px;
+
+$font-family: PingFangSC, PingFangSC-Regular, 'Microsoft Yahei', '微软雅黑', Arial, Helvetica, sans-serif; // 字体
+
+/** color */
+$color-primary: #fff; // 主要颜色
+$color-secondary: #ddd; // 次要颜色
+$font-color-active: #57b0cb; // 激活字体颜色
+$font-color: #333; // 字体颜色
+$xtxColor: #f6f8ff; // 主题
+$helpColor: #E26237; // 辅助
+$sucColor: #1DC779; // 成功
+$warnColor: #FFB302; // 警告

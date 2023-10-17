@@ -1,0 +1,17 @@
+/**
+ * display: flex
+ */
+@mixin flexCenter() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/**
+ * 禁止换行, 文本溢出省略号显示 (一行)
+ */
+@mixin ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
