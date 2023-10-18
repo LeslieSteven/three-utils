@@ -1,4 +1,5 @@
-export * from "./animator";
+export * from "./animator.js";
 export * from "./clock";
 export * from "./component";
-export * from "./iMouse";
+export * from "./iMouse.js";
+export * from "./raycastSelector.js";

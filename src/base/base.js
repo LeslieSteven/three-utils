@@ -2,6 +2,10 @@ import * as THREE from 'three';
 import {InteractionManager} from 'three.interactive';
 import {Animator, Clock, IMouse} from '../components';
 
+/**
+ * Base class for all scenes
+ */
+
 class Base {
   constructor(sel = "#amigo") {
     const camera = new THREE.PerspectiveCamera(
@@ -46,11 +50,13 @@ class Base {
     this.addEventListeners();
   }
 
+  // 添加事件监听
   addEventListeners() {
     // mouse
     this.iMouse.listenForMouse();
   }
 
+  // 初始化
   init() {
     this.update(() => {
       this.interactionManager.update();

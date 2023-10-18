@@ -20,7 +20,6 @@ class Box extends Component {
     const mesh = new THREE.Mesh(geometry, material);
     mesh.position.copy(position);
     this.mesh = mesh;
-    console.log(this.mesh);
   }
   addExisting() {
     this.container.add(this.mesh);
