@@ -1,20 +1,19 @@
 import * as THREE from 'three';
-import { InteractionManager } from 'three.interactive';
-import { IMouse } from '@/utils/IMouse';
+import {InteractionManager} from 'three.interactive';
+import {IMouse, Animator, Clock} from '../components';
 
 class Base {
-  constructor(sel = '#amigo') {
+  constructor(sel = "#app") {
     const camera = new THREE.PerspectiveCamera(
       70,
       window.innerWidth / window.innerHeight,
-      0.01,
+      0.1,
       100
     );
     camera.position.z = 1;
     this.camera = camera;
 
-    const scene = new THREE.Scene();
-    this.scene = scene;
+    this.scene = new THREE.Scene();
 
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
@@ -25,8 +24,11 @@ class Base {
     this.renderer = renderer;
 
     const container = document.querySelector(sel);
+    console.log(container);
     container?.appendChild(renderer.domElement);
-    this.container = container;
+    this.container = container
+
+    this.animator = new Animator(this);
 
     this.interactionManager = new InteractionManager(
       this.renderer,
@@ -35,6 +37,9 @@ class Base {
     );
 
     this.composer = null;
+
+    const clock = new Clock(this);
+    this.clock = clock;
 
     this.iMouse = new IMouse(this);
 
@@ -49,10 +54,14 @@ class Base {
   }
 
   init() {
+    this.update(() => {
+      this.interactionManager.update();
+    });
+    this.animator.update();
   }
 
-  update(time) {
-    console.log('update', time);
+  update(fn) {
+    this.animator.add(fn);
   }
 
   render() {

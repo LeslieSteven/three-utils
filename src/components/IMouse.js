@@ -1,9 +1,11 @@
 import * as THREE from 'three';
 
-import { Component } from './component';
+import { Component } from '../components';
+import { Base } from "../base/base";
+
 
 class IMouse extends Component {
-  constructor(base) {
+  constructor(base = new Base()) {
     super(base);
 
     this.mouse = new THREE.Vector2(0, 0);

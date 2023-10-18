@@ -1,5 +1,5 @@
-import { Base } from "./base";
-import { Component } from "./component";
+import { Base } from "../base/base";
+import { Component } from "../components";
 
 import { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 
@@ -8,7 +8,7 @@ import { OrbitControls as OrbitControlsImpl } from "three-stdlib";
  */
 class OrbitControls extends Component {
   controls = OrbitControlsImpl;
-  constructor(base, config = {}) {
+  constructor(base = new Base(), config = {}) {
     super(base);
 
     const { enableDamping = true } = config;

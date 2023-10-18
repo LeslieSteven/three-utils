@@ -1,9 +1,8 @@
 import * as THREE from "three";
 
-import { Component } from "./component";
+import { Component } from "../components";
 
 class Box extends Component {
-  mesh = THREE.Mesh;
   constructor(base, config = {}) {
     super(base);
     const {
@@ -21,10 +20,9 @@ class Box extends Component {
     const mesh = new THREE.Mesh(geometry, material);
     mesh.position.copy(position);
     this.mesh = mesh;
+    console.log(this.mesh);
   }
   addExisting() {
-    console.log("addExisting");
-    console.log(this.container);
     this.container.add(this.mesh);
   }
 }

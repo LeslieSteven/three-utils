@@ -1,19 +1,14 @@
 import mitt from 'mitt';
-
-import { Base } from './base';
+import { Base } from "../base/base";
 
 class Component {
-  constructor(base = Base) {
+  constructor(base = new Base()) {
     this.base = base;
     this.base.update((time) => this.update(time));
-
-    console.log('载入组件');
 
     this.emitter = mitt();
 
     this.container = this.base.scene;
-
-    console.log(this.container)
   }
 
   // 将组件添加至当前场景或替换当前场景中已有的组件

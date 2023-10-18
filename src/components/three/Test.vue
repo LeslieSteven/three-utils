@@ -1,7 +1,7 @@
 <script setup>
-import { Base } from '@/utils/base';
-import { OrbitControls } from '@/utils/OrbitControls';
-import { Box } from '@/utils/Box';
+import { Base } from '@/base/base.js';
+import { OrbitControls } from '@/controls/OrbitControls.js';
+import { Box } from '@/shader/box.js';
 
 class Sketch extends Base {
   create() {
@@ -10,21 +10,22 @@ class Sketch extends Base {
     box.addExisting();
   }
 }
-
 const createSketch = () => {
-  const sketch = new Sketch();
+  const sketch = new Sketch("#amigo");
   sketch.create();
   return sketch;
 };
 
-createSketch();
+onMounted(() => {
+  createSketch();
+});
+
 
 </script>
 
 <template>
   <div
     id="amigo"
-    class="clear"
   />
 </template>
 

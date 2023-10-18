@@ -14,7 +14,7 @@ declare module 'vue' {
     Head: typeof import('./src/components/layout-main/Head.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Test: typeof import('./src/components/three/test.vue')['default']
+    Test: typeof import('./src/components/three/Test.vue')['default']
     ThreeOne: typeof import('./src/components/three/Three-One.vue')['default']
     ThreeThree: typeof import('./src/components/three/Three-three.vue')['default']
     ThreeTwo: typeof import('./src/components/three/Three-Two.vue')['default']
