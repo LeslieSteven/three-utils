@@ -24,7 +24,6 @@ class Base {
     this.renderer = renderer;
 
     const container = document.querySelector(sel);
-    console.log(container);
     container?.appendChild(renderer.domElement);
     this.container = container
 
