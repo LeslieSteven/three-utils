@@ -3,7 +3,7 @@ import {InteractionManager} from 'three.interactive';
 import {IMouse, Animator, Clock} from '../components';
 
 class Base {
-  constructor(sel = "#app") {
+  constructor(sel = "#amigo") {
     const camera = new THREE.PerspectiveCamera(
       70,
       window.innerWidth / window.innerHeight,
