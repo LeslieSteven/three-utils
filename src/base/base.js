@@ -7,7 +7,7 @@ class Base {
     const camera = new THREE.PerspectiveCamera(
       70,
       window.innerWidth / window.innerHeight,
-      0.1,
+      0.01,
       100
     );
     camera.position.z = 1;
