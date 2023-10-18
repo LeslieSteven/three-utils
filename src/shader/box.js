@@ -25,6 +25,11 @@ class Box extends Component {
   addExisting() {
     this.container.add(this.mesh);
   }
+
+  spin(time, axis = "y", speed = 1) {
+    const mesh = this.mesh;
+    mesh.rotation[axis] = (time / 1000) * speed;
+  }
 }
 
 export { Box };

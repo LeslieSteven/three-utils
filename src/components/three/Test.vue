@@ -8,6 +8,9 @@ class Sketch extends Base {
     new OrbitControls(this);
     const box = new Box(this)
     box.addExisting();
+    this.update((time) => {
+      box.spin(time);
+    });
   }
 }
 const createSketch = () => {

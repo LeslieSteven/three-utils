@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import {InteractionManager} from 'three.interactive';
-import {IMouse, Animator, Clock} from '../components';
+import {Animator, Clock, IMouse} from '../components';
 
 class Base {
   constructor(sel = "#amigo") {
@@ -37,8 +37,7 @@ class Base {
 
     this.composer = null;
 
-    const clock = new Clock(this);
-    this.clock = clock;
+    this.clock = new Clock(this);
 
     this.iMouse = new IMouse(this);
 

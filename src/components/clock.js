@@ -1,22 +1,20 @@
 import * as THREE from "three";
 
-import { Component } from "./component";
-import { Base } from "../base/base";
+import {Component} from "./component";
+import {Base} from "../base/base";
 
 class Clock extends Component {
-  constructor(base = new Base()) {
+  constructor(base) {
     super(base);
 
-    const clock = new THREE.Clock();
-    this.clock = clock;
+    this.clock = new THREE.Clock();
 
     this.deltaTime = 0;
     this.elapsedTime = 0;
   }
   update(time) {
     const newElapsedTime = this.clock.getElapsedTime();
-    const deltaTime = newElapsedTime - this.elapsedTime;
-    this.deltaTime = deltaTime;
+    this.deltaTime = newElapsedTime - this.elapsedTime;
     this.elapsedTime = newElapsedTime;
     this.emit("tick");
   }
