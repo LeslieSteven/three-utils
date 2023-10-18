@@ -2,7 +2,33 @@ import * as THREE from "three";
 
 import { Component } from "../components";
 
+/**
+ * Box
+ * @param {Base} base
+ * @param {Object} config
+ * @param {Number} config.width
+ * @param {Number} config.height
+ * @param {Number} config.depth
+ * @param {THREE.Vector3} config.position
+ * @param {THREE.Material} config.material
+ * @returns {Box}
+ * @constructor
+ * @extends {Component}
+ * @example
+ * const box = new Box(base, {
+ *  width: 0.2,
+ *  height: 0.2,
+ *  depth: 0.2,
+ *  position: new THREE.Vector3(0, 0, 0),
+ *  material: new THREE.MeshBasicMaterial({
+ *  color: new THREE.Color("#ffffff"),
+ *  }),
+ *  });
+ *  box.addExisting();
+ */
+
 class Box extends Component {
+
   constructor(base, config = {}) {
     super(base);
     const {

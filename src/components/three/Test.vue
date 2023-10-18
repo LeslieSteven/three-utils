@@ -1,30 +1,34 @@
 <script setup>
-import * as THREE from 'three';
-import { Base } from '@/base/base.js';
+import { Base, THREE } from '@/base/base.js';
 import { OrbitControls } from '@/controls/OrbitControls.js';
 import { Box } from '@/shader/box.js';
-import { RaycastSelector } from '@/components/RaycastSelector.js';
+import { RaycastSelector } from '@/components';
 
 class Sketch extends Base {
   create() {
     new OrbitControls(this);
     const rs = new RaycastSelector(this);
-    const box = new Box(this);
+    const config = {
+      width: 0.5,
+      height: 0.5,
+      depth: 0.5,
+      material: new THREE.MeshBasicMaterial({ color: 0x00ff00 }),
+    };
+    const box = new Box(this, config);
     box.addExisting();
 
     this.update((time) => {
-      box.spin(time);
+      box.spin(time, 'x');
     });
 
     // mouse
     this.container.addEventListener("mousemove", (e) => {
       const target = rs.onChooseIntersect(box.mesh);
-      console.log(target);
       if (target) {
         const p = "#FF0000";
         box.mesh.material.color.set(p);
       }else {
-        const p = "#FFFFFF";
+        const p = "#00ff00";
         box.mesh.material.color.set(p);
       }
     });

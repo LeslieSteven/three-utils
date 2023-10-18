@@ -95,4 +95,4 @@ class Base {
   }
 }
 
-export { Base };
+export { Base, THREE };
