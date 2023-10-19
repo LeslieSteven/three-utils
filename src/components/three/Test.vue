@@ -1,7 +1,7 @@
 <script setup>
 import { Base, THREE } from '@/base/base.js';
 import { OrbitControls } from '@/controls/OrbitControls.js';
-import { Box } from '@/shader/box.js';
+import { Box, Capsule } from '@/shader';
 import { RaycastSelector } from '@/components';
 
 class Sketch extends Base {
@@ -12,24 +12,36 @@ class Sketch extends Base {
       width: 0.5,
       height: 0.5,
       depth: 0.5,
-      material: new THREE.MeshBasicMaterial({ color: 0x00ff00 }),
+      material: new THREE.MeshBasicMaterial({ color: 0x00ffff }),
     };
     const box = new Box(this, config);
     box.addExisting();
 
+    const capConfig = {
+      radius: 0.5,
+      height: 0.5,
+      radialSegments: 32,
+      position: new THREE.Vector3(5, 0, 0),
+      material: new THREE.MeshBasicMaterial({ color: 0x00ff00 }),
+    };
+    const cap = new Capsule(this, capConfig);
+    cap.addExisting();
+
     this.update((time) => {
       box.spin(time, 'x');
+      cap.spin(time, 'z');
     });
 
     // mouse
     this.container.addEventListener("mousemove", (e) => {
-      const target = rs.onChooseIntersect(box.mesh);
+      const target = rs.onChooseList(this.scene.children);
       if (target) {
-        const p = "#FF0000";
-        box.mesh.material.color.set(p);
+        target.material.color.set(0xff0000);
       }else {
-        const p = "#00ff00";
-        box.mesh.material.color.set(p);
+        // 恢复颜色
+        this.scene.children.forEach((item) => {
+          item.material.color.set(0x00ffff);
+        });
       }
     });
   }

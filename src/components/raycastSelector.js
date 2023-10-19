@@ -41,6 +41,14 @@ class RaycastSelector extends Component {
     const includedTarget = targets.find((item) => item.object === target);
     return includedTarget ? includedTarget : null;
   }
+
+  onChooseList(targets) {
+    const intersects = this.getInterSects();
+    const includedTargets = intersects.filter((item) =>
+      targets.includes(item.object)
+    );
+    return includedTargets.length ? includedTargets[0].object : null;
+  }
 }
 
 export { RaycastSelector };
